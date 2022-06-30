@@ -1,4 +1,6 @@
 terraform {
+  backend "azurerm" {
+  }
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
@@ -32,11 +34,6 @@ resource "azurerm_kubernetes_cluster" "k8s_cluster" {
     type = "SystemAssigned"
   }
   
-}
-
-resource "local_file" "kube_config" {
-  content  = azurerm_kubernetes_cluster.k8s_cluster.kube_config_raw
-  filename = "kube_config.yaml"
 }
 
 variable "resource_group_name" {

@@ -25,6 +25,7 @@ pipeline {
                 script {
                     dir('src') {
                         sh 'terraform init -migrate-state --backend-config "resource_group_name=${resource_group_name}" --backend-config "storage_account_name=${storage_account_name}" --backend-config "container_name=${container_name}" --backend-config "key=${az_key}"'
+                        sh 'terraform apply --auto-approve'
                     }
                 }
             }

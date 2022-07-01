@@ -11,6 +11,10 @@ pipeline {
 
         stage('Criação ou atualização da infra') {
             environment {
+                ARM_CLIENT_ID = credentials('ARM_CLIENT_ID')
+                ARM_CLIENT_SECRET = credentials('ARM_CLIENT_SECRET')
+                ARM_SUBSCRIPTION_ID = credentials('ARM_SUBSCRIPTION_ID')
+                ARM_TENANT_ID = credentials('ARM_TENANT_ID')
                 resource_group_name = credentials('resource_group_name')
                 storage_account_name = credentials('storage_account_name')
                 container_name = credentials('container_name')

@@ -49,7 +49,7 @@ variable "cluster_name" {
 }
 
 variable "default_node_pool_count" {
-  default = 2
+  default = 4
 }
 
 variable "default_node_pool_size" {
